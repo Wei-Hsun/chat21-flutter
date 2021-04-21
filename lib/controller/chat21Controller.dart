@@ -31,7 +31,7 @@ Future<void> sendMessage(
     String attributes,
     String metadata) async {
   String uriString =
-      "https://us-central1-crm-flutter-denovortho.cloudfunctions.net/api/tilechat/messages";
+      "https://us-central1-<APP-ID>.cloudfunctions.net/api/tilechat/messages";
   Uri uri = Uri.parse(uriString);
   var response = await http.post(uri,
       headers: {
@@ -57,7 +57,7 @@ Future<void> sendMessage(
 Future<void> updateName(
     String firebaseIdToken, String firstName, String lastName, String email) async {
   String uriString =
-      "https://us-central1-crm-flutter-denovortho.cloudfunctions.net/api/tilechat/contacts";
+      "https://us-central1-<APP-ID>.cloudfunctions.net/api/tilechat/contacts";
   Uri uri = Uri.parse(uriString);
   var response = await http.post(uri,
       headers: {
@@ -78,7 +78,7 @@ Future<void> updateName(
 Future<void> creatGroup(
     String firebaseIdToken, String groupName, String surgery) async {
   String uriString =
-      "https://us-central1-crm-flutter-denovortho.cloudfunctions.net/api/tilechat/groups";
+      "https://us-central1-<APP-ID>.cloudfunctions.net/api/tilechat/groups";
   Uri uri = Uri.parse(uriString);
   var response = await http.post(uri,
       headers: {
@@ -88,8 +88,8 @@ Future<void> creatGroup(
       },
       // body: utf8.encode(jsonEncode({
       body: jsonEncode({
-        "group_name": groupName+" 手術："+surgery,
-        "group_members": {"ETB4ONSnLScqpDpJ4y6GokXZsDs2":1},
+        "group_name": groupName,
+        "group_members": {"<USER-ID>":1},
       }));
 
   var responseBody = response.body;
